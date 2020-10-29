@@ -26,12 +26,7 @@ public class playercon : MonoBehaviour
     void Update()
     {
         //agent.updateRotation = false;
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            mRunning = true;
-        }
-        if(Input.GetKeyUp(KeyCode.Return))
-            mAnimator.speed = 1;
+
         if(Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
