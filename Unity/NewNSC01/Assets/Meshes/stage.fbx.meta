@@ -3,7 +3,67 @@ guid: 3d27532248958a246a406d3644fa36bd
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CreamBrown
+    second: {fileID: 2100000, guid: 9e5ad1a9b9b88684796c0e2be35ab04f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorBack
+    second: {fileID: 2100000, guid: 4537bb49b45453740b1950f45f0a7310, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorFront
+    second: {fileID: 2100000, guid: 28b3ee81f97509d4fb2eb97d5aacd920, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: 9e5ad1a9b9b88684796c0e2be35ab04f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.008
+    second: {fileID: 2100000, guid: 9e5ad1a9b9b88684796c0e2be35ab04f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.009
+    second: {fileID: 2100000, guid: 1bec361dd2d3412428be90c7fd190722, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PillarDoorFirst
+    second: {fileID: 2100000, guid: bdaf6ffb2dade6049a2b567baf1c84b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PillarDoorsecond
+    second: {fileID: 2100000, guid: 6cde069dab2e52d46a1a25319863e02c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: df259cfa8afd7ee43861bf2479faff11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillar01
+    second: {fileID: 2100000, guid: 3523c81125131f04d90b3e4e327e9876, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillar02
+    second: {fileID: 2100000, guid: 3523c81125131f04d90b3e4e327e9876, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pod
+    second: {fileID: 2100000, guid: 714675bf010388a48bd6a491b4b78f2e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
