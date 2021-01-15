@@ -7,7 +7,7 @@ public class Rewind : MonoBehaviour
     {
         // Get the Enemies global clock
         Clock clock = Timekeeper.instance.Clock("Player");
-        print(clock.timeScale);
+
         // Change its time scale on key press
         if (Input.GetKeyDown(KeyCode.Space))
         {

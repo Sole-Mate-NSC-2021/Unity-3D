@@ -7,6 +7,6 @@ public class HUMANCON : MonoBehaviour
     public Animator anim;
     void Update()
     {
-        anim.SetInteger("running",(int)Input.GetAxis("Horizontal"));
+        anim.SetFloat("running",Mathf.Abs(Input.GetAxis("Horizontal")));
     }
 }

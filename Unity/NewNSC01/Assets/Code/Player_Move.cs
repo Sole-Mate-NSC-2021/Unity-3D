@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class Player_Move : MonoBehaviour
 {
-    public float speed=0;
-    float ho;
+    int dir=0;
+    public float speed=0, smooth=1;
+    float ho, angle=90f,a;
     void Update()
     {
-        ho = Input.GetAxis("Horizontal")* Time.deltaTime*speed;
-        transform.Translate(0, 0, ho);
+        a = Input.GetAxis("Horizontal");
+        ho = a*Time.deltaTime*speed;
+        if( dir == 0 && a<0) {
+            transform.rotation *= Quaternion.Euler(0, 180f, 0);
+            dir=1;
+        }
+        else if(dir == 1 && a>0) {
+            transform.rotation *= Quaternion.Euler(0, -180f, 0); 
+            dir=0;
+        }
+        transform.Translate(0, 0, Mathf.Abs(ho) );
     }
 }
