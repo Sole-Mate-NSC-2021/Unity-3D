@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7cf9acd704f6f47459b0f6aa99029227
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 45
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Strong Glasgow DEMO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 88825de6d9a86d64597bd0b0a702dbd6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
