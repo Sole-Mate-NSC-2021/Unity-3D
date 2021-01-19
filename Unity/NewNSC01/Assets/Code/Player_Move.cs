@@ -6,7 +6,7 @@ public class Player_Move : MonoBehaviour
 {
     int dir=0;
     public float speed=0, smooth=1;
-    float ho, angle=90f,a;
+    float ho, a;
     void Update()
     {
         a = Input.GetAxis("Horizontal");
