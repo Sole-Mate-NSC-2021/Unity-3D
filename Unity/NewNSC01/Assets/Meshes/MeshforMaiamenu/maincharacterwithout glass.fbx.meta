@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: 557e9b06da71fda478fc17ca1d2cad2a
+guid: 71d7083ed0684374a8fa72a0f90039e6
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Helmetglass
-    second: {fileID: 2100000, guid: fb08f6c5610623440ab37b90d334d2ba, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MainCMat
-    second: {fileID: 2100000, guid: 269664ce77eee5e4ca0731d781198cbc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: T_grid
-    second: {fileID: 2100000, guid: 269664ce77eee5e4ca0731d781198cbc, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -56,8 +41,8 @@ ModelImporter:
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
