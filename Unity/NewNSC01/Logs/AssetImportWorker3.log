@@ -1,0 +1,226 @@
+Using pre-set license
+Built from '2020.2/release' branch; Version is '2020.2.1f1 (270dd8c3da1c) revision 2559448'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.0) 64bit' Language: 'en' Physical Memory: 8034 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+E:\Unity editor\2020.2.1f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+E:/GitHub/Sole-Mate-NSC-2021/Unity-3D/Unity/NewNSC01
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+10222
+Successfully changed project path to: E:/GitHub/Sole-Mate-NSC-2021/Unity-3D/Unity/NewNSC01
+E:/GitHub/Sole-Mate-NSC-2021/Unity-3D/Unity/NewNSC01
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 88.85 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.1f1 (270dd8c3da1c)
+[Subsystems] Discovering subsystems at path E:/Unity editor/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/GitHub/Sole-Mate-NSC-2021/Unity-3D/Unity/NewNSC01/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c8c)
+    Vendor:   
+    VRAM:     4018 MB
+    Driver:   27.21.14.5751
+Initialize mono
+Mono path[0] = 'E:/Unity editor/2020.2.1f1/Editor/Data/Managed'
+Mono path[1] = 'E:/Unity editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'E:/Unity editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56868
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: E:/Unity editor/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.000872 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 99.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.184 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003284 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 97.87 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.074 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.49 seconds
+Refreshing native plugins compatible for Editor in 1.91 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3458 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 192.6 MB.
+System memory in use after: 192.8 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3936.
+Total: 63.686200 ms (FindLiveObjects: 0.362700 ms CreateObjectMapping: 0.171700 ms MarkObjects: 59.451100 ms  DeleteObjects: 3.698900 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/PNG/icon-01.png
+  artifactKey: Guid(a8eb4f680ed591b4c9f7544612abf6c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PNG/icon-01.png using Guid(a8eb4f680ed591b4c9f7544612abf6c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67dd90ee5a2d19f137e7787e87efd151') in 0.980390 seconds
+  Import took 1.094043 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.025445 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.91 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.631 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.10 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3169 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 179.8 MB.
+System memory in use after: 180.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 3940.
+Total: 225.436200 ms (FindLiveObjects: 29.860100 ms CreateObjectMapping: 2.906500 ms MarkObjects: 179.906000 ms  DeleteObjects: 12.760000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 343.248107 seconds.
+  path: Assets/SFX/amongus.mp3
+  artifactKey: Guid(d3bc3c4b1f61bdf4ba73b8558e4e251c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SFX/amongus.mp3 using Guid(d3bc3c4b1f61bdf4ba73b8558e4e251c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '257ab60490d76a0ad4e041872fc15faf') in 1.244919 seconds
+  Import took 1.323108 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000357 seconds.
+  path: Assets/SFX/The Forest Waterfall HD - The Calming Sound of Water.mp3
+  artifactKey: Guid(3fb2dd25e48526142a0c5e33381888bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SFX/The Forest Waterfall HD - The Calming Sound of Water.mp3 using Guid(3fb2dd25e48526142a0c5e33381888bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a14930dfef9a8ccd23c5243f6b1d305') in 0.097551 seconds
+  Import took 0.134915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/SFX/foot_step_SFX_1.mp3
+  artifactKey: Guid(637a71c1947821f4c83e0bc65d94350e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SFX/foot_step_SFX_1.mp3 using Guid(637a71c1947821f4c83e0bc65d94350e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b11258fdd378c47e134afc5ed7320be6') in 0.153037 seconds
+  Import took 0.195933 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.155181 seconds.
+  path: Assets/Scenes/Scene02.unity
+  artifactKey: Guid(9b640b8fca8e3c747b36bf9e525557ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scene02.unity using Guid(9b640b8fca8e3c747b36bf9e525557ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef929515e6a474cd1c4dde7f908c6f2c') in 0.031111 seconds
+  Import took 0.117245 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 826.773217 seconds.
+  path: Assets/Meshes/Mesh for scene02/box.fbx
+  artifactKey: Guid(c786e4756ecf6d741a2b9086bdc692ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Mesh for scene02/box.fbx using Guid(c786e4756ecf6d741a2b9086bdc692ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70712504f7a1732022fc2b315a87846d') in 7.652816 seconds
+  Import took 7.886097 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000379 seconds.
+  path: Assets/Meshes/Mesh for scene02/rock02.fbx
+  artifactKey: Guid(f12bec0247b24a44487e738b0e0c002a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Mesh for scene02/rock02.fbx using Guid(f12bec0247b24a44487e738b0e0c002a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f274c6f441f1e3f5cfa7cc4e8bfc72c3') in 0.106621 seconds
+  Import took 0.135549 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/Meshes/Mesh for scene02/rock01.fbx
+  artifactKey: Guid(9173e4ea0a6f79246bb56c208453736c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Mesh for scene02/rock01.fbx using Guid(9173e4ea0a6f79246bb56c208453736c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae07ae130aa84b13bbb31e398600a13e') in 0.087068 seconds
+  Import took 0.188932 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Meshes/Mesh for scene02/crystal02.fbx
+  artifactKey: Guid(0f5eb1a6868ed0642ad508aca5060d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Mesh for scene02/crystal02.fbx using Guid(0f5eb1a6868ed0642ad508aca5060d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f2d2097450dcc57829e71760fe916f9') in 0.081711 seconds
+  Import took 0.128546 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000321 seconds.
+  path: Assets/Meshes/Mesh for scene02/cubepillar.fbx
+  artifactKey: Guid(6e09dfcc0eed18c4ebbc5f3249bc33d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Mesh for scene02/cubepillar.fbx using Guid(6e09dfcc0eed18c4ebbc5f3249bc33d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f73b41f63079e69bc7ae7238d36ea62') in 0.056428 seconds
+  Import took 0.104354 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000643 seconds.
+  path: Assets/Meshes/Mesh for scene02/crystal01.fbx
+  artifactKey: Guid(f9a9be2beea3f9a418481c45bc91866b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Mesh for scene02/crystal01.fbx using Guid(f9a9be2beea3f9a418481c45bc91866b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '297d351152647424367d3c62e27f68ec') in 0.081727 seconds
+  Import took 0.156481 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000480 seconds.
+  path: Assets/Meshes/Mesh for scene02/rock03.fbx
+  artifactKey: Guid(2b14824e45790bb4687bcca148f08956) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Mesh for scene02/rock03.fbx using Guid(2b14824e45790bb4687bcca148f08956) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ca6d7c1706a2d20149988e90862c5ec') in 0.058536 seconds
+  Import took 0.084305 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 79.051749 seconds.
+  path: Assets/Scenes/Scene01.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scene01.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e155529f5794ed94f72c1a95fd6bcf1d') in 0.103779 seconds
+  Import took 0.162318 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.295274 seconds.
+  path: Assets/Scenes/Scene02.unity
+  artifactKey: Guid(9b640b8fca8e3c747b36bf9e525557ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scene02.unity using Guid(9b640b8fca8e3c747b36bf9e525557ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a01974eb9d95b3bd292c63593ad02fd') in 0.011323 seconds
+  Import took 0.043504 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 124.929800 seconds.
+  path: Assets/Meshes/Mesh for scene02/Stage02.fbx
+  artifactKey: Guid(5f8e3fb2c6c84094ab23ea45feb7c4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Mesh for scene02/Stage02.fbx using Guid(5f8e3fb2c6c84094ab23ea45feb7c4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d7172b2b0919bf27c50f8365c6d6543') in 0.028329 seconds
+  Import took 0.112022 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 59.945354 seconds.
+  path: Assets/Meshes/Mesh for scene02/stage02.fbx
+  artifactKey: Guid(5f8e3fb2c6c84094ab23ea45feb7c4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Meshes/Mesh for scene02/stage02.fbx using Guid(5f8e3fb2c6c84094ab23ea45feb7c4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bcce2314c7fb022ec5dc946c2baddfd') in 0.992234 seconds
+  Import took 1.057517 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
