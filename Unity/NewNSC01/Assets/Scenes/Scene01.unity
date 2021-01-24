@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 7931357}
   m_Layer: 0
   m_Name: Dotup01
-  m_TagString: Untagged
+  m_TagString: Dot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5788,7 +5788,7 @@ GameObject:
   - component: {fileID: 184544461}
   m_Layer: 0
   m_Name: Dot01
-  m_TagString: Untagged
+  m_TagString: Dot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6305,7 +6305,7 @@ GameObject:
   - component: {fileID: 634226097}
   m_Layer: 0
   m_Name: Dotup02
-  m_TagString: Untagged
+  m_TagString: Dot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11467,7 +11467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39dfff47b34324c439cd750533d091dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.096242
+      value: -11.87
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39dfff47b34324c439cd750533d091dd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11475,7 +11475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39dfff47b34324c439cd750533d091dd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.8232899
+      value: 3.82
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 39dfff47b34324c439cd750533d091dd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11829,7 +11829,7 @@ GameObject:
   - component: {fileID: 1056131512}
   m_Layer: 0
   m_Name: Dot02
-  m_TagString: Untagged
+  m_TagString: Dot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11925,7 +11925,7 @@ GameObject:
   - component: {fileID: 1067512573}
   m_Layer: 0
   m_Name: Dot03
-  m_TagString: Untagged
+  m_TagString: Dot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12421,7 +12421,7 @@ GameObject:
   - component: {fileID: 1490381237}
   m_Layer: 0
   m_Name: Dot04
-  m_TagString: Untagged
+  m_TagString: Dot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17633,6 +17633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b5d3da483685c4abd592f5c2a23db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMove: {fileID: 1734151740}
   anim: {fileID: 1734151737}
 --- !u!95 &1734151737
 Animator:
@@ -17776,6 +17777,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   smooth: 1
+  dotPointed: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  targetRot: {x: 0, y: 0, z: 0, w: 0}
+  animSpeed: 0
 --- !u!114 &1734151741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17819,7 +17824,7 @@ GameObject:
   - component: {fileID: 1770129667}
   m_Layer: 0
   m_Name: Dot00
-  m_TagString: Untagged
+  m_TagString: Dot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -4,16 +4,64 @@ using UnityEngine;
 
 public class Player_Move : MonoBehaviour
 {
-    int dir=0;
-    public float speed=0, smooth=1;
-    float ho, a;
+    public float speed = 0.0f, smooth = 1.0f;
+    public GameObject dotPointed;
+    public Vector3 targetPos;
+    public Quaternion targetRot;
+    public float animSpeed = 0.0f;
     AudioSource ad;
     void Start() {
+        dotPointed = GameObject.Find("Dot00");
+        targetPos = dotPointed.transform.position;
         ad = GetComponent<AudioSource>();
         ad.Stop();
     }
     void Update()
     {
+
+        /// Kang Update
+        if (Input.GetMouseButton(0))
+        {
+            Ray ray;
+            RaycastHit hit;
+
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.tag == "Dot")
+                {
+                    dotPointed = hit.collider.gameObject;
+                    targetPos = dotPointed.transform.position;
+                    //Debug.Log(targetPos.ToString("F4"));
+                }
+            }
+        }
+        if (dotPointed != null)
+        {
+            //Debug.Log(dotPointed.name);
+            targetRot = Quaternion.LookRotation(targetPos - transform.position);
+
+            transform.rotation = targetRot;
+
+            if (Mathf.Abs(targetPos.x - transform.position.x) > 0.1f)
+            {
+                if (!ad.isPlaying)
+                    ad.Play();
+                animSpeed = 1.0f;
+                transform.Translate(0, 0, speed * Time.deltaTime);
+            }
+            else
+            {
+                ad.Stop();
+                animSpeed = 0.0f;
+                dotPointed = null;
+            }
+        }
+        ///
+    }
+}
+/*
+
         a = Input.GetAxis("Horizontal");
         ho = a*Time.deltaTime*speed;
         if(Mathf.Abs(a)>0) {
@@ -31,5 +79,4 @@ public class Player_Move : MonoBehaviour
             dir=0;
         }
         transform.Translate(0, 0, Mathf.Abs(ho) );
-    }
-}
+ */
