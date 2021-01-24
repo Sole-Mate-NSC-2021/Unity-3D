@@ -9,7 +9,7 @@ public class PlayerAnimationControl : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(playerControl.animSpeed);
+        //Debug.Log(playerControl.animSpeed);
         anim.SetFloat("running", playerControl.animSpeed);
     }
 }
