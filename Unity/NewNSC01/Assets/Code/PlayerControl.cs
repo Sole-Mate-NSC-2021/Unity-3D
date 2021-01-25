@@ -12,20 +12,27 @@ public class PlayerControl : MonoBehaviour
 
     public float speed = 0.0f, smooth = 1.0f;
     public bool isRunning = false;
-    GameObject dotPointed;
-    Vector3 targetPos, hoverPos, endLinePos;
+    public GameObject dotPointed, dotHovered;
+    Vector3 targetPos, hoverPos, startLinePos, endLinePos;
     Quaternion targetRot;
     public float animSpeed = 1.0f;
 
     AudioSource ad;
+
+    GenGrid grid;
+
+    List<GenNode> lis;
+
     void Start()
     {
+
+        grid = GetComponent<GenGrid>();
+
         dotPointed = GameObject.Find("Dot00");
-        targetPos = dotPointed.transform.position;
 
         if (this.name == "Character2")
         {
-            dotPointed = GameObject.Find("Dotup02");
+            dotPointed = GameObject.Find("Dot14");
         }
         targetPos = dotPointed.transform.position;
 
@@ -41,6 +48,8 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         /// Kang Update
+
+        lis = grid.FinalPath;
 
         SelectDestination();
         if (dotPointed != null)
@@ -59,7 +68,7 @@ public class PlayerControl : MonoBehaviour
                 ReachDestination();
             }
         }
-        else if(!isRunning)
+        if(!isRunning)
         {
             myLineRenderer.positionCount = 0;
             DrawPath();
@@ -77,6 +86,8 @@ public class PlayerControl : MonoBehaviour
         {
             if (hit.collider.tag == "Dot")
             {
+                dotHovered = hit.collider.gameObject;
+                if(Input.GetMouseButtonDown(0))
                 dotPointed = hit.collider.gameObject;
                 if (!isRunning)
                 {
@@ -108,11 +119,12 @@ public class PlayerControl : MonoBehaviour
         clickMarkerPrefab.SetActive(false);
         ad.Stop();
         animSpeed = 0.0f;
-        dotPointed = null;
+        //dotPointed = null;
     }
 
     void DrawPath()
     {
+        /*
         if (!isRunning)
         {
             endLinePos = hoverPos;
@@ -121,11 +133,34 @@ public class PlayerControl : MonoBehaviour
         {
             endLinePos = targetPos;
         }
+        */
         if(myLineRenderer.positionCount < 2)
         {
+
+            if(lis.Count < 1)
+            {
+                Debug.Log(lis.Count);
+                return;
+            }
+
+            int it = 0;
+
+            myLineRenderer.positionCount = (lis.Count - 1) * 2 ;
+            
+            for(int i = 0; i < lis.Count - 1; i++)
+            {
+                startLinePos = lis[i].Position;
+                endLinePos = lis[i + 1].Position;
+                myLineRenderer.SetPosition(it++, startLinePos);
+                myLineRenderer.SetPosition(it++, endLinePos);
+            }
+
             return;
         }
+        
+        /*
         myLineRenderer.SetPosition(0, transform.position);
         myLineRenderer.SetPosition(1, endLinePos);
+        */
     }
 }
