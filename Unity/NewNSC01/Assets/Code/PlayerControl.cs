@@ -23,6 +23,12 @@ public class PlayerControl : MonoBehaviour
         dotPointed = GameObject.Find("Dot00");
         targetPos = dotPointed.transform.position;
 
+        if (this.name == "Character2")
+        {
+            dotPointed = GameObject.Find("Dotup02");
+        }
+        targetPos = dotPointed.transform.position;
+
         ad = GetComponent<AudioSource>();
         ad.Stop();
 
