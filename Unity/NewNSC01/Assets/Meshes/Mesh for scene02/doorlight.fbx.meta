@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 0f5eb1a6868ed0642ad508aca5060d68
+guid: 391ee38e381ca0e45a759aaced51fddd
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Crystal Ring
-    second: {fileID: -7749805014890478511, guid: f9a9be2beea3f9a418481c45bc91866b, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

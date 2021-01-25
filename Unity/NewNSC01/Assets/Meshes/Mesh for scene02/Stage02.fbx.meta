@@ -3,7 +3,17 @@ guid: 5f8e3fb2c6c84094ab23ea45feb7c4f4
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CaveWall
+    second: {fileID: 2100000, guid: fe09d6447e60622489bdc30925274424, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rockWallFloor
+    second: {fileID: 2100000, guid: fe09d6447e60622489bdc30925274424, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
