@@ -13,7 +13,6 @@ public class CharacterSwitch : MonoBehaviour
         isFuture = true;
         futureCharacter = GameObject.Find("astronaustBody");
         nowCharacter = GameObject.Find("Character2");
-        
     }
     void Update()
     {
@@ -22,6 +21,6 @@ public class CharacterSwitch : MonoBehaviour
             isFuture = !isFuture;
         }
         futureCharacter.GetComponent<PlayerControl>().enabled = isFuture;
-        nowCharacter.GetComponent<PlayerControl>().enabled = !isFuture;
+        //nowCharacter.GetComponent<PlayerControl>().enabled = !isFuture;
     }
 }

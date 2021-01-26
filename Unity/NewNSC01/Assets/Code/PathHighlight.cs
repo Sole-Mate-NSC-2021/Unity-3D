@@ -11,7 +11,7 @@ public class PathHighlight : MonoBehaviour
 
     public GameObject dotTargeted, dotHovered;
 
-    public int HoverI, HoverJ, TargetI, TargetJ, StartI = -1, StartJ = -1;
+    public int HoverI, HoverJ, TargetI, TargetJ, StartI = 0, StartJ = -1;
 
     public Vector3 targetPos, hoverPos, startLinePos, endLinePos;
 
@@ -27,7 +27,8 @@ public class PathHighlight : MonoBehaviour
     void Start()
     {
 
-        StartI = StartJ = -1;
+        StartI = 0;
+        StartJ = -1;
 
         grid = GetComponent<GenGrid>();
         playerControl = GetComponent<PlayerControl>();
