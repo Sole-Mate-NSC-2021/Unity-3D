@@ -12,28 +12,35 @@ public class PathFinding : MonoBehaviour
 
     public int startI, startJ, TargetI = 0, TargetJ = 3;
 
+    PathHighlight pathHighlight;
+
     private void Awake()
     {
         grid = GetComponent<GenGrid>();
-        
+        pathHighlight = GetComponent<PathHighlight>();
     }
 
     private void Update()
     {
-        NowObject = GameObject.Find("astronaustBody").GetComponent<PlayerControl>().dotPointed;
+        //NowObject = GameObject.Find("astronaustBody").GetComponent<PlayerControl>().dotPointed;
         //Debug.Log(NowObject.name);
+        /*
         startI = NowObject.name[3] - '0';
         startJ = NowObject.name[4] - '0';
+        /*
         TargetObject = GameObject.Find("astronaustBody").GetComponent<PlayerControl>().dotHovered;
         if (TargetObject == null)
         {
             TargetI = TargetJ = 0;
         }
+        */
+        /*
         else
         {
             TargetI = TargetObject.name[3] - '0';
             TargetJ = TargetObject.name[4] - '0';
         }
+        */
         //Debug.Log(startI + " " + startJ + " " + TargetI + " " + TargetJ);
         FindPath(startI, startJ, TargetI, TargetJ);
     }
