@@ -12,7 +12,7 @@ public class CharacterSwitch : MonoBehaviour
     void Start()
     {
         isFuture = true;
-        futureCharacter = GameObject.Find("astronaustBody");
+        futureCharacter = GameObject.Find("Character1");
         nowCharacter = GameObject.Find("Character2");
     }
     void Update()
