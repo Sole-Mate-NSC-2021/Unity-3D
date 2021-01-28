@@ -42,6 +42,9 @@ public class PlayerControl : MonoBehaviour
         pathHighlight = GetComponent<PathHighlight>();
         ad = GetComponent<AudioSource>();
         ad.Stop();
+
+        transform.position = grid.AccessNode(0, 0).Position;
+
     }
     void Update()
     {
