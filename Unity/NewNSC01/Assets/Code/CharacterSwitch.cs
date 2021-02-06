@@ -12,8 +12,6 @@ public class CharacterSwitch : MonoBehaviour
     void Start()
     {
         isFuture = true;
-        futureCharacter = GameObject.Find("Character1");
-        nowCharacter = GameObject.Find("Character2");
     }
     void Update()
     {
@@ -22,6 +20,9 @@ public class CharacterSwitch : MonoBehaviour
             isFuture = !isFuture;
         }
         futureCharacter.GetComponent<PlayerControl>().enabled = isFuture;
+        //nowCharacter.GetComponent<PlayerControl>().enabled = !isFuture;
+        futureCharacter.GetComponent<PathHighlight>().enabled = isFuture;
+        nowCharacter.GetComponent<PathHighlight>().enabled = !isFuture;
 
         if (Input.GetKeyDown("r"))
         {

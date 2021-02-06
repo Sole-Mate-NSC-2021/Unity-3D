@@ -13,6 +13,10 @@ public class PathHighlight : MonoBehaviour
 
     public int HoverI, HoverJ, TargetI, TargetJ, StartI = 0, StartJ = -1;
 
+    public int BeginEndI, BeginEndJ;
+
+    public bool isPointing;
+
     public Vector3 targetPos, hoverPos, startLinePos, endLinePos;
 
     PlayerControl playerControl;
@@ -27,8 +31,8 @@ public class PathHighlight : MonoBehaviour
     void Start()
     {
 
-        StartI = 0;
-        StartJ = -1;
+        TargetI = BeginEndI;
+        TargetJ = BeginEndJ;
 
         grid = GetComponent<GenGrid>();
         playerControl = GetComponent<PlayerControl>();
@@ -58,11 +62,14 @@ public class PathHighlight : MonoBehaviour
         Ray ray;
         RaycastHit hit;
 
+        isPointing = false;
+
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider.tag == "Dot")
             {
+                isPointing = true;
                 dotHovered = hit.collider.gameObject;
                 hoverPos = dotHovered.transform.position;
 
@@ -81,10 +88,23 @@ public class PathHighlight : MonoBehaviour
 
                 lis = grid.FinalPath;
 
-                HoverPath();
 
             }
         }
+        if (!isPointing)
+        {
+            /*
+            if (StartI < 0 || StartI >= grid.gridSizeI || StartJ < 0 || StartJ >= grid.gridSizeJ)
+                return;
+            pathFinding.TargetI = StartI;
+            pathFinding.TargetJ = StartJ;
+            pathFinding.startI = StartI;
+            pathFinding.startJ = StartJ;
+
+            lis = grid.FinalPath;
+            */
+        }
+        HoverPath();
     }
     void SelectDestination()
     {
@@ -94,6 +114,7 @@ public class PathHighlight : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
+
             if (hit.collider.tag == "Dot")
             {
                 dotTargeted = hit.collider.gameObject;
@@ -135,6 +156,18 @@ public class PathHighlight : MonoBehaviour
 
         myLineRenderer.positionCount = (lis.Count - 1) * 2;
 
+        if (!isPointing)
+        {
+            myLineRenderer.positionCount = 0;
+            return;
+        }
+
+        if(StartI == HoverI && StartJ == HoverJ)
+        {
+            myLineRenderer.positionCount = 0;
+            return;
+        }
+
         for (int i = 0; i < lis.Count - 1; i++)
         {
             startLinePos = lis[i].Position;
@@ -159,7 +192,7 @@ public class PathHighlight : MonoBehaviour
         int cnt = 0;
 
         myLineRenderer.positionCount = (lis.Count - it - 1) * 2;
-
+            
         for (int i = it; i < lis.Count - 1; i++)
         {
             startLinePos = lis[i].Position;

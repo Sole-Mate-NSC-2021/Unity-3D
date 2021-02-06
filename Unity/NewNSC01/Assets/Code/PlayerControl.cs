@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
     PathHighlight pathHighlight;
     List<GenNode> lis;
 
-    public float speed = 0.0f, smooth = 1.0f;
+    public float speed = 1.0f, smooth = 1.0f;
     public bool isRunning = false;
     public GameObject dotPointed, dotHovered;
     Vector3 StartPos, targetPos, hoverPos, startLinePos, endLinePos;
@@ -24,14 +24,20 @@ public class PlayerControl : MonoBehaviour
 
     public int TargetI, TargetJ, StartI, StartJ, NextI, NextJ, it, NextRot;
 
+    public int BeginStartI, BeginStartJ;
+
+    public bool isWall;
+
     GenNode targetNode;
 
     AudioSource ad;
 
+    Rigidbody rb;
+
     void Start()
     {
-        StartI = 0;
-        StartJ = -1;
+        StartI = BeginStartI;
+        StartJ = BeginStartJ;
 
         UpRot = new Vector3(0, 0, 0);
         DownRot = new Vector3(0, 180, 0);
@@ -43,11 +49,27 @@ public class PlayerControl : MonoBehaviour
         ad = GetComponent<AudioSource>();
         ad.Stop();
 
-        transform.position = grid.AccessNode(0, 0).Position;
+        rb = GetComponent<Rigidbody>();
+
+        //transform.position = grid.AccessNode(0, 0).Position;
 
     }
     void Update()
     {
+
+        /*isWall = false;
+
+        RaycastHit hit;
+
+        if(Physics.Raycast(transform.position, transform.forward, out hit))
+        {
+            if (hit.collider.gameObject.tag == "Door")
+            {
+                isWall = true;
+            }
+        }
+        */
+
         /// Kang Update
         /// 
         lis = grid.FinalPath;
@@ -62,6 +84,7 @@ public class PlayerControl : MonoBehaviour
             NextJ = lis[it].gridJ;
 
             targetNode = grid.AccessNode(NextI, NextJ);
+
             //Debug.Log(targetNode.gridI + targetNode.gridJ);
             targetPos = targetNode.Position;
             //targetRot = Quaternion.LookRotation(targetPos - transform.position);
@@ -95,7 +118,7 @@ public class PlayerControl : MonoBehaviour
                 }
             }
             
-            if (Mathf.Abs(targetPos.x - transform.position.x) > 0.5f)
+            if (Mathf.Abs(targetPos.x - transform.position.x) > 0.1f)
             {
                 isRunning = true;
                 Running();
@@ -116,13 +139,17 @@ public class PlayerControl : MonoBehaviour
         if (!ad.isPlaying)
             ad.Play();
         animSpeed = 1.0f;
-        transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
+
+        rb.MovePosition(transform.position + transform.forward * (speed * Time.deltaTime));
+        //transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
     }
 
     void ReachDestination()
     {
         StartI = NextI;
         StartJ = NextJ;
+        //pathHighlight.StartI = StartI;
+        //pathHighlight.StartJ = StartJ;
         pathHighlight.DrawPath();
         it++;
         ad.Stop();
