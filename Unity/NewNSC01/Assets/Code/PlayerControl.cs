@@ -2,100 +2,78 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(LineRenderer))]
-
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private GameObject clickMarkerPrefab;
     [SerializeField] private Transform visualObjectsParent;
-    private LineRenderer myLineRenderer;
-
+    GenNode targetNode;
     GenGrid grid;
     PathHighlight pathHighlight;
+    PathFinding pathFinding;
+    AudioSource ad;
+    Rigidbody rb;
+    
     List<GenNode> lis;
 
-    public float speed, smooth = 1.0f;
-    float maxSpeed = 9.0f, maxAnimSpeed = 1.0f;
-    public bool isRunning = false;
     public GameObject dotPointed, dotHovered;
-    Vector3 StartPos, targetPos, hoverPos, startLinePos, endLinePos;
-    Quaternion targetRot;
     Vector3 UpRot, DownRot, RightRot, LeftRot;
-    public float animSpeed;
+    Quaternion targetRot;
+    public float speed, animSpeed, smooth = 1.0f;
+    public bool isRunning = false, isWall, gameStart = true;
 
-    public int TargetI, TargetJ, StartI, StartJ, NextI, NextJ, it, NextRot;
+    float maxSpeed = 8.0f, maxAnimSpeed = 10.0f;
+    public int StartI, StartJ, TargetI, TargetJ, NextI, NextJ, BeginStartI, BeginStartJ;
+    public int it, NextRot;
 
-    public int BeginStartI, BeginStartJ;
-
-    public bool isWall;
-
-    GenNode targetNode;
-
-    AudioSource ad;
-
-    Rigidbody rb;
+    public string nextDotName;
 
     void Start()
     {
-        StartI = BeginStartI;
-        StartJ = BeginStartJ;
+        ad = GetComponent<AudioSource>();        
+        rb = GetComponent<Rigidbody>();      
+        
+        grid = GetComponent<GenGrid>();
+        pathHighlight = GetComponent<PathHighlight>();
+        pathFinding = GetComponent<PathFinding>();
+
+        animSpeed = maxAnimSpeed;
+        speed = maxSpeed;
 
         UpRot = new Vector3(0, 0, 0);
         DownRot = new Vector3(0, 180, 0);
         LeftRot = new Vector3(0, -90, 0);
         RightRot = new Vector3(0, 90, 0);
 
-        grid = GetComponent<GenGrid>();
-        pathHighlight = GetComponent<PathHighlight>();
-        ad = GetComponent<AudioSource>();
+        StartI = BeginStartI;
+        StartJ = BeginStartJ;
+
         ad.Stop();
-
-        animSpeed = maxAnimSpeed;
-
-        speed = maxSpeed;
-
-        rb = GetComponent<Rigidbody>();
-
-        //transform.position = grid.AccessNode(0, 0).Position;
-
     }
     void Update()
     {
-        /*isWall = false;
-
-        RaycastHit hit;
-
-        if(Physics.Raycast(transform.position, transform.forward, out hit))
-        {
-            if (hit.collider.gameObject.tag == "Door")
-            {
-                isWall = true;
-            }
-        }
-        */
-
-        /// Kang Update
-        /// 
         lis = grid.FinalPath;
 
         TargetI = pathHighlight.TargetI;
         TargetJ = pathHighlight.TargetJ;
 
         if ((StartI != TargetI) || (StartJ != TargetJ))
-        {
+        {           
+            if (gameStart)
+            {
+                NextI = TargetI;
+                NextJ = TargetJ;
+            }
 
-            NextI = lis[it].gridI;
-            NextJ = lis[it].gridJ;
+            else {
+                NextI = lis[it].gridI;
+                NextJ = lis[it].gridJ;
+            }
+
+
 
             targetNode = grid.AccessNode(NextI, NextJ);
 
-            //Debug.Log(targetNode.gridI + targetNode.gridJ);
-            targetPos = targetNode.Position;
-            //targetRot = Quaternion.LookRotation(targetPos - transform.position);
-            //targetRot.x = transform.rotation.x;
-            //targetRot.z = transform.rotation.z;
-            //targetRot.w = transform.rotation.w;
-            //transform.rotation = targetRot;
+            nextDotName = "Dot" + NextI + NextJ;
             
             if(NextI - StartI != 0)
             {
@@ -118,19 +96,12 @@ public class PlayerControl : MonoBehaviour
                 }
                 else
                 {
+                    
                     transform.eulerAngles = LeftRot;
                 }
             }
-            
-            if (Mathf.Abs(targetPos.x - transform.position.x) > 0.1f)
-            {
-                isRunning = true;
-                Running();
-            }
-            else
-            {
-                ReachDestination();
-            }
+            isRunning = true;
+            Running();
         }
         else
         {
@@ -138,24 +109,37 @@ public class PlayerControl : MonoBehaviour
             animSpeed = 0.0f;
         }
     }
+
     void Running()
     {
         if (!ad.isPlaying)
             ad.Play();
         animSpeed = maxAnimSpeed;
-
-        rb.MovePosition(transform.position + transform.forward * (speed * Time.deltaTime));
+        rb.MovePosition(transform.position + transform.forward * (speed * Time.fixedDeltaTime));
         //transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
     }
 
     void ReachDestination()
     {
+        gameStart = false;
         StartI = NextI;
         StartJ = NextJ;
-        //pathHighlight.StartI = StartI;
-        //pathHighlight.StartJ = StartJ;
+        /*
+        pathFinding.StartI = StartI;
+        pathFinding.StartJ = StartJ;
+        */
         pathHighlight.DrawPath();
         it++;
         ad.Stop();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == nextDotName)
+        {
+            isRunning = false;
+            ReachDestination();
+        }
+    }
+
 }

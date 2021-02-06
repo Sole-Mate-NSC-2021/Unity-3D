@@ -34,7 +34,7 @@ public class PushButton : MonoBehaviour
 
     int ch = 0;
 
-    public float rotSpeed = 9;
+    public float rotSpeed = 2.0f;
 
     bool changeDoor = false;
 
@@ -66,7 +66,7 @@ public class PushButton : MonoBehaviour
     {
         if (ch == 1)
         {
-            currentRot = Vector3.Lerp(currentRot, lastRot, rotSpeed * Time.deltaTime);
+            currentRot = Vector3.Lerp(currentRot, lastRot, rotSpeed * Time.fixedDeltaTime);
             transform.eulerAngles = currentRot;
             if (changeDoor)
             {
@@ -80,12 +80,13 @@ public class PushButton : MonoBehaviour
 
         if (ch == 2)
         {
-            currentRot = Vector3.Lerp(currentRot, toRot, rotSpeed * Time.deltaTime);
+            currentRot = Vector3.Lerp(currentRot, toRot, rotSpeed * Time.fixedDeltaTime);
             transform.eulerAngles = currentRot;
             if (Mathf.Abs(transform.eulerAngles.y - toRot.y) < 0.1f)
             {
                 currentRot = new Vector3(0, difRotation(lastRot.y, 0), 0);
                 anim.SetFloat("push button", 1);
+                //anim.speed = 2.0f;
             }
         }
 
@@ -105,9 +106,9 @@ public class PushButton : MonoBehaviour
             //Debug.Log(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
             if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
-                Debug.Log("UUWUW");
                 changeDoor = true;          
                 anim.SetFloat("push button", 0);
+                //anim.speed = 1.0f;
             }
             else
             {
@@ -122,13 +123,10 @@ public class PushButton : MonoBehaviour
             if(rewind.localTimeScale == -1)
             {
                 i = lisDoor[lisDoor.Count - 1].i; j = lisDoor[lisDoor.Count - 1].j;
-                Debug.Log("HAHAHA");
-                Debug.Log("Out : " + i + " " + j);
                 lisDoor.Remove(lisDoor[lisDoor.Count - 1]);
             }
             else
             {
-                Debug.Log("Add : " + i + " " + j);
                 pairDoor tmp = new pairDoor(i, j);
                 lisDoor.Add(tmp);
             }            

@@ -6,13 +6,15 @@ public class GenGrid : MonoBehaviour
 {
     GenNode[,] grid;
     public List<GenNode> FinalPath;
-    public int gridSizeI = 2, gridSizeJ = 5;
+    public int gridSizeI = 2, gridSizeJ = 6;
     public GameObject currentNode;
 
     public int[] di = { 1, -1, 0, 0 }, dj = {0, 0, 1, -1};
 
     void Start()
     {
+        gridSizeI = 2;
+        gridSizeJ = 6;
         CreateGrid();
     }
 

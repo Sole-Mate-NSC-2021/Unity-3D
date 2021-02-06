@@ -4,35 +4,45 @@ using UnityEngine;
 
 public class CamControl : MonoBehaviour
 {
-    public float _panspeed = 20f;
-    public float _ScreenBoarder = 10f;
-    
-   
+    public float panSpeed;
+    public float ScreenBoarder = 10f;
+
+    public Vector3 dragOrigin, dragPos, nextPos, realPos;
+
+    public float leftX, rightX, leftY, rightY;
+
+    void Start()
+    {
+        panSpeed = 1.0f;
+        leftX = -25;
+        rightX = -15;
+        leftY = 14;
+        rightY = 23;
+    }
+
     void Update()
     {
-        Vector3 pos = transform.position;
-
-        if (Input.mousePosition.y >= Screen.height - _ScreenBoarder)
+        if (Input.GetMouseButtonDown(1))
         {
-            pos.z += _panspeed * Time.deltaTime;
+            dragOrigin = Input.mousePosition;
+            return;
         }
 
+        if (!Input.GetMouseButton(1)) 
+            return;
 
-        if (Input.mousePosition.y <= _ScreenBoarder)
-        {
-            pos.z -= _panspeed * Time.deltaTime;
-        }
+        dragPos = Camera.main.ScreenToViewportPoint(dragOrigin - Input.mousePosition);
+        nextPos = new Vector3(dragPos.x * panSpeed, dragPos.y * panSpeed, 0);
+        realPos = Camera.main.ViewportToWorldPoint(nextPos);
 
-        if (Input.mousePosition.x >= Screen.width - _ScreenBoarder)
-        {
-            pos.x += _panspeed * Time.deltaTime;
-        }
+        realPos.x = Mathf.Max(realPos.x, leftX);
+        realPos.x = Mathf.Min(realPos.x, rightX);
 
+        realPos.y = Mathf.Max(realPos.y, leftY);
+        realPos.y = Mathf.Min(realPos.y, rightY);
 
-        if (Input.mousePosition.x <= _ScreenBoarder)
-        {
-            pos.x -= _panspeed * Time.deltaTime;
-        }
-        transform.position = pos;
+        nextPos = Camera.main.WorldToViewportPoint(realPos);
+        nextPos.z = Camera.main.ScreenToViewportPoint(dragOrigin).z;
+        transform.Translate(nextPos, Space.World);
     }
 }

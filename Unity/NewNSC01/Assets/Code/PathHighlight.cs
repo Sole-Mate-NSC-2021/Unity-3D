@@ -30,7 +30,6 @@ public class PathHighlight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         TargetI = BeginEndI;
         TargetJ = BeginEndJ;
 
@@ -83,26 +82,12 @@ public class PathHighlight : MonoBehaviour
                 pathFinding.TargetI = HoverI;
                 pathFinding.TargetJ = HoverJ;
 
-                pathFinding.startI = StartI;
-                pathFinding.startJ = StartJ;
+                pathFinding.StartI = StartI;
+                pathFinding.StartJ = StartJ;
 
                 lis = grid.FinalPath;
 
-
             }
-        }
-        if (!isPointing)
-        {
-            /*
-            if (StartI < 0 || StartI >= grid.gridSizeI || StartJ < 0 || StartJ >= grid.gridSizeJ)
-                return;
-            pathFinding.TargetI = StartI;
-            pathFinding.TargetJ = StartJ;
-            pathFinding.startI = StartI;
-            pathFinding.startJ = StartJ;
-
-            lis = grid.FinalPath;
-            */
         }
         HoverPath();
     }
@@ -114,7 +99,6 @@ public class PathHighlight : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
-
             if (hit.collider.tag == "Dot")
             {
                 dotTargeted = hit.collider.gameObject;
@@ -130,11 +114,13 @@ public class PathHighlight : MonoBehaviour
                 pathFinding.TargetI = TargetI;
                 pathFinding.TargetJ = TargetJ;
 
-                pathFinding.startI = StartI;
-                pathFinding.startJ = StartJ;
+                pathFinding.StartI = StartI;
+                pathFinding.StartJ = StartJ;
 
-                playerControl.it = 0;
+                playerControl.it = 1;
 
+                //Debug.Log("Check " + " " + Start + " " + StartJ + " " + TargetI + " " + TargetJ);
+                    
                 lis = grid.FinalPath;
 
             }
@@ -191,7 +177,7 @@ public class PathHighlight : MonoBehaviour
 
         int cnt = 0;
 
-        myLineRenderer.positionCount = (lis.Count - it - 1) * 2;
+        myLineRenderer.positionCount = Mathf.Max(0, (lis.Count - it - 1) * 2);
             
         for (int i = it; i < lis.Count - 1; i++)
         {

@@ -10,14 +10,16 @@ public class PathFinding : MonoBehaviour
 
     public GameObject NowObject;
 
-    public int startI, startJ, TargetI = 0, TargetJ = 3;
+    public int StartI, StartJ, TargetI = 0, TargetJ = 3;
 
     PathHighlight pathHighlight;
+    PlayerControl playerControl;
 
     private void Awake()
     {
         grid = GetComponent<GenGrid>();
         pathHighlight = GetComponent<PathHighlight>();
+        playerControl = GetComponent<PlayerControl>();
     }
 
     private void Update()
@@ -25,8 +27,8 @@ public class PathFinding : MonoBehaviour
         //NowObject = GameObject.Find("astronaustBody").GetComponent<PlayerControl>().dotPointed;
         //Debug.Log(NowObject.name);
         /*
-        startI = NowObject.name[3] - '0';
-        startJ = NowObject.name[4] - '0';
+        StartI = NowObject.name[3] - '0';
+        StartJ = NowObject.name[4] - '0';
         /*
         TargetObject = GameObject.Find("astronaustBody").GetComponent<PlayerControl>().dotHovered;
         if (TargetObject == null)
@@ -41,12 +43,13 @@ public class PathFinding : MonoBehaviour
             TargetJ = TargetObject.name[4] - '0';
         }
         */
-        //Debug.Log(startI + " " + startJ + " " + TargetI + " " + TargetJ);
-        FindPath(startI, startJ, TargetI, TargetJ);
+        //Debug.Log(StartI + " " + StartJ + " " + TargetI + " " + TargetJ);
+        FindPath(StartI, StartJ, TargetI, TargetJ);
     }
 
     void FindPath(int a_StartI, int a_StartJ, int a_TargetI, int a_TargetJ)
     {
+
         GenNode StartNode = grid.AccessNode(a_StartI, a_StartJ);
         GenNode TargetNode = grid.AccessNode(a_TargetI, a_TargetJ);
 
@@ -115,13 +118,13 @@ public class PathFinding : MonoBehaviour
             FinalPath.Reverse();
 
             grid.FinalPath = FinalPath;
+            //playerControl.it = 1;
         }
 
         int GetManhattenDistance(GenNode a_NodeA, GenNode a_NodeB)
         {
             return Mathf.Abs(a_NodeA.gridI - a_NodeB.gridI) + Mathf.Abs(a_NodeA.gridJ - a_NodeB.gridJ);
         }
-
     }
 
 }

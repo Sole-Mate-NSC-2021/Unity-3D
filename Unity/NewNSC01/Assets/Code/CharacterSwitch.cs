@@ -8,13 +8,14 @@ public class CharacterSwitch : MonoBehaviour
     public bool enebleScript;
     public bool isBlock;
     public GameObject futureCharacter, nowCharacter;
-
     void Start()
     {
+
         isFuture = true;
     }
     void Update()
     {
+
         if (Input.GetKeyDown("c"))
         {
             isFuture = !isFuture;
