@@ -14,13 +14,14 @@ public class PlayerControl : MonoBehaviour
     PathHighlight pathHighlight;
     List<GenNode> lis;
 
-    public float speed = 1.0f, smooth = 1.0f;
+    public float speed, smooth = 1.0f;
+    float maxSpeed = 9.0f, maxAnimSpeed = 1.0f;
     public bool isRunning = false;
     public GameObject dotPointed, dotHovered;
     Vector3 StartPos, targetPos, hoverPos, startLinePos, endLinePos;
     Quaternion targetRot;
     Vector3 UpRot, DownRot, RightRot, LeftRot;
-    public float animSpeed = 1.0f;
+    public float animSpeed;
 
     public int TargetI, TargetJ, StartI, StartJ, NextI, NextJ, it, NextRot;
 
@@ -49,6 +50,10 @@ public class PlayerControl : MonoBehaviour
         ad = GetComponent<AudioSource>();
         ad.Stop();
 
+        animSpeed = maxAnimSpeed;
+
+        speed = maxSpeed;
+
         rb = GetComponent<Rigidbody>();
 
         //transform.position = grid.AccessNode(0, 0).Position;
@@ -56,7 +61,6 @@ public class PlayerControl : MonoBehaviour
     }
     void Update()
     {
-
         /*isWall = false;
 
         RaycastHit hit;
@@ -138,7 +142,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (!ad.isPlaying)
             ad.Play();
-        animSpeed = 1.0f;
+        animSpeed = maxAnimSpeed;
 
         rb.MovePosition(transform.position + transform.forward * (speed * Time.deltaTime));
         //transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);

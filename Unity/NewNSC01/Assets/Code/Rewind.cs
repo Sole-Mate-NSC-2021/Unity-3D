@@ -2,15 +2,18 @@ using UnityEngine;
 using Chronos;
 
 public class Rewind : MonoBehaviour
-{
+{        
+    public int localTimeScale = 1;
     void Update()
     {
+
         // Get the Enemies global clock
         Clock clock = Timekeeper.instance.Clock("Player");
 
         // Change its time scale on key press
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            localTimeScale = -1;
             clock.localTimeScale = -1; // Rewind
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
