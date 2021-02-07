@@ -43,7 +43,6 @@ public class PathFinding : MonoBehaviour
             TargetJ = TargetObject.name[4] - '0';
         }
         */
-        //Debug.Log(StartI + " " + StartJ + " " + TargetI + " " + TargetJ);
         FindPath(StartI, StartJ, TargetI, TargetJ);
     }
 

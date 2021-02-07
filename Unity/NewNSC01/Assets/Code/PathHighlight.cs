@@ -50,7 +50,7 @@ public class PathHighlight : MonoBehaviour
         StartJ = playerControl.StartJ;
         if (Input.GetMouseButtonDown(0))
             SelectDestination();
-        else if (!playerControl.isRunning)
+        else if (!playerControl.isOnWay)
         {
             HoverPoint();
         }

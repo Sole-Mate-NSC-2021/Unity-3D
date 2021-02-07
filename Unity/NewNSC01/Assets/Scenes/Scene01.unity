@@ -6198,7 +6198,7 @@ GameObject:
   - component: {fileID: 263769167}
   m_Layer: 0
   m_Name: Button14_Border
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21327,7 +21327,7 @@ GameObject:
   - component: {fileID: 1772571788}
   m_Layer: 0
   m_Name: Button13_Border
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

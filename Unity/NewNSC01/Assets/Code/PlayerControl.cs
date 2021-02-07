@@ -19,11 +19,12 @@ public class PlayerControl : MonoBehaviour
     Vector3 UpRot, DownRot, RightRot, LeftRot;
     Quaternion targetRot;
     public float speed, animSpeed, smooth = 1.0f;
-    public bool isRunning = false, isWall, gameStart = true;
+    public bool isRunning = false, isWall, gameStart = true, isOnWay = false;
 
     float maxSpeed = 8.0f, maxAnimSpeed = 10.0f;
     public int StartI, StartJ, TargetI, TargetJ, NextI, NextJ, BeginStartI, BeginStartJ;
     public int it, NextRot;
+    public float AddRot;
 
     public string nextDotName;
 
@@ -39,13 +40,15 @@ public class PlayerControl : MonoBehaviour
         animSpeed = 0;
         speed = maxSpeed;
 
-        UpRot = new Vector3(0, 0, 0);
-        DownRot = new Vector3(0, 180, 0);
-        LeftRot = new Vector3(0, -90, 0);
-        RightRot = new Vector3(0, 90, 0);
+        UpRot = new Vector3(0, 0 + AddRot, 0);
+        DownRot = new Vector3(0, 180 + AddRot, 0);
+        LeftRot = new Vector3(0, -90 + AddRot, 0);
+        RightRot = new Vector3(0, 90 + AddRot, 0);
 
         StartI = BeginStartI;
         StartJ = BeginStartJ;
+
+        isOnWay = false;
 
         ad.Stop();
     }
@@ -57,7 +60,8 @@ public class PlayerControl : MonoBehaviour
         TargetJ = pathHighlight.TargetJ;
 
         if ((StartI != TargetI) || (StartJ != TargetJ))
-        {           
+        {
+            isOnWay = true;
             if (gameStart)
             {
                 NextI = TargetI;
@@ -65,6 +69,7 @@ public class PlayerControl : MonoBehaviour
             }
 
             else {
+                //Debug.Log("it " + it + " " + lis.Count + " " + lis[0].gridI + " " + lis[0].gridJ);
                 NextI = lis[it].gridI;
                 NextJ = lis[it].gridJ;
             }
@@ -105,6 +110,7 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
+            isOnWay = false;
             isRunning = false;
             animSpeed = 0.0f;
         }
