@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class HoverHighlight : MonoBehaviour
 {
-    public Color startColor;
 
-    Renderer renderer;
-
+    //public GameObject Border;
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        if(this.tag == "Dot")
+            this.GetComponent<BoxCollider>().size = new Vector3(10, 10, 10);
+        //Border = GameObject.Find(this.gameObject.name + "_Border");
     }
-    void OnMouseEnter()
+    void OnMouseOver()
     {
-        startColor = renderer.material.color;
-        renderer.material.color = Color.yellow;
+        this.GetComponent<Renderer>().enabled = true;
+        //Border.GetComponent<Renderer>().enabled = true;
     }
     void OnMouseExit()
     {
-        renderer.material.color = startColor;
+        this.GetComponent<Renderer>().enabled = false;
+        //Border.GetComponent<Renderer>().enabled = false;
     }
 }

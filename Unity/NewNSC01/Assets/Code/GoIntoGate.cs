@@ -41,7 +41,7 @@ public class GoIntoGate : MonoBehaviour
     void Update()
     {
 
-        if (this.gameObject.name == "CharacterPresent" && playerControl.StartI == 0 && playerControl.StartJ == 5)
+        if (this.gameObject.name == "CharacterPresent" && endFuture(0, 5))
         {
             Debug.Log("ERSDAD");
             SceneManager.LoadScene("Scene02");
@@ -124,7 +124,7 @@ public class GoIntoGate : MonoBehaviour
     }
     bool endFuture(int a_i, int a_j)
     {
-        Debug.Log(playerControl.StartI + " " + playerControl.StartJ);
+        //Debug.Log(playerControl.StartI + " " + playerControl.StartJ);
         if (a_i == playerControl.StartI && a_j == playerControl.StartJ)
         {
             return true;
@@ -134,6 +134,7 @@ public class GoIntoGate : MonoBehaviour
 
     IEnumerator toReverse()
     {
+        pathHighlight.enabled = false;
         yield return new WaitForSeconds(2.5f);
         rewind.localTimeScale = -1;
         isFuture = characterSwitch.isFuture;
