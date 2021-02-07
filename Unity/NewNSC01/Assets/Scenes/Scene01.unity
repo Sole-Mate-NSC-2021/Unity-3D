@@ -19752,6 +19752,7 @@ GameObject:
   - component: {fileID: 1770129668}
   - component: {fileID: 1770129667}
   - component: {fileID: 1770129670}
+  - component: {fileID: 1770129671}
   m_Layer: 0
   m_Name: Dot00
   m_TagString: Dot
@@ -19849,6 +19850,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.000001, y: 10, z: 10.000001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1770129671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770129665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada381f0ebede084a9e760d79b2ac6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1785847272
 PrefabInstance:
   m_ObjectHideFlags: 0
