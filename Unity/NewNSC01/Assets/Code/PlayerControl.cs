@@ -36,7 +36,7 @@ public class PlayerControl : MonoBehaviour
         pathHighlight = GetComponent<PathHighlight>();
         pathFinding = GetComponent<PathFinding>();
 
-        animSpeed = maxAnimSpeed;
+        animSpeed = 0;
         speed = maxSpeed;
 
         UpRot = new Vector3(0, 0, 0);

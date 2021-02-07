@@ -6,6 +6,15 @@ public class ChangeScene : MonoBehaviour
 {
     public static bool _is_change=false;
     public static string scenename;
+
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "")
+        SceneManager.LoadScene()
+    }
+    */
+
     public void chage_to_select_menu() {
         scenename = "Level selection";
         GameObject.Find("RawImage").GetComponent<Animator>().Play("Fade_in");

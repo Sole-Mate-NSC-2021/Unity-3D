@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoIntoGate : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class GoIntoGate : MonoBehaviour
     public List<GenNode> lis;
 
     bool isFuture, isPresent = true;
-
     void Start()
     {
         playerControl = GetComponent<PlayerControl>();
@@ -40,6 +40,12 @@ public class GoIntoGate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (this.gameObject.name == "CharacterPresent" && playerControl.StartI == 0 && playerControl.StartJ == 5)
+        {
+            Debug.Log("ERSDAD");
+            SceneManager.LoadScene("Scene02");
+        }
 
         isReverse = endFuture(1, 5);
 
@@ -118,7 +124,8 @@ public class GoIntoGate : MonoBehaviour
     }
     bool endFuture(int a_i, int a_j)
     {
-        if(a_i == playerControl.StartI && a_j == playerControl.StartJ)
+        Debug.Log(playerControl.StartI + " " + playerControl.StartJ);
+        if (a_i == playerControl.StartI && a_j == playerControl.StartJ)
         {
             return true;
         }
