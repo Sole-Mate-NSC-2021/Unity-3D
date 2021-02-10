@@ -15,8 +15,9 @@ public class ChangeScene : MonoBehaviour
     }
     */
 
-    public void chage_to_select_menu() {
+    public void change_to_select_menu() {
         scenename = "Level selection";
+        Debug.Log("OMG");
         GameObject.Find("RawImage").GetComponent<Animator>().Play("Fade_in");
         _is_change=true;
     }

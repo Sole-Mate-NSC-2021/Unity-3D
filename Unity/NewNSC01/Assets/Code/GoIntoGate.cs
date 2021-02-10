@@ -14,6 +14,7 @@ public class GoIntoGate : MonoBehaviour
     public GenGrid grid;
     public Rewind rewind;
     public CharacterSwitch characterSwitch;
+    public ChangeScene changeScene;
 
     public List<GenNode> lis;
 
@@ -27,6 +28,7 @@ public class GoIntoGate : MonoBehaviour
         grid = GetComponent<GenGrid>();
         rewind = GetComponent<Rewind>();
         characterSwitch = GameObject.Find("CharacterSwitch").GetComponent<CharacterSwitch>();
+        changeScene = GetComponent<ChangeScene>();
     }
 
     public Vector3 toRot, currentRot;
@@ -44,7 +46,7 @@ public class GoIntoGate : MonoBehaviour
         if (this.gameObject.name == "CharacterPresent" && endFuture(0, 5))
         {
             Debug.Log("ERSDAD");
-            SceneManager.LoadScene("Scene02");
+            changeScene.change_to_select_menu();
         }
 
         isReverse = endFuture(1, 5);

@@ -2643,7 +2643,7 @@ MonoBehaviour:
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
-  m_PointlightHDType: 0
+  m_PointlightHDType: 1
   m_SpotLightShape: 0
   m_AreaLightShape: 0
   m_Intensity: 50
@@ -2653,7 +2653,7 @@ MonoBehaviour:
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
   m_VolumetricDimmer: 1
-  m_LightUnit: 2
+  m_LightUnit: 0
   m_FadeDistance: 10000
   m_VolumetricFadeDistance: 10000
   m_AffectDiffuse: 1
@@ -2757,10 +2757,10 @@ Light:
   m_GameObject: {fileID: 664160782}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 1
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.76792455, g: 0.9683475, b: 1, a: 1}
-  m_Intensity: 50
+  m_Intensity: 63.661976
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2805,8 +2805,8 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 10954.002
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 10}
+  m_UseBoundingSphereOverride: 1
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3148,6 +3148,7 @@ MonoBehaviour:
   grid: {fileID: 0}
   rewind: {fileID: 0}
   characterSwitch: {fileID: 0}
+  changeScene: {fileID: 0}
   toRot: {x: 0, y: 0, z: 0}
   currentRot: {x: 0, y: 0, z: 0}
   ch: 0
@@ -5547,6 +5548,7 @@ MonoBehaviour:
   grid: {fileID: 0}
   rewind: {fileID: 0}
   characterSwitch: {fileID: 0}
+  changeScene: {fileID: 0}
   toRot: {x: 0, y: 0, z: 0}
   currentRot: {x: 0, y: 0, z: 0}
   ch: 0
