@@ -14,7 +14,7 @@ public class HoverHighlight : MonoBehaviour
     }
     void OnMouseOver()
     {
-        Debug.Log("HASD");
+        //Debug.Log("HASD");
         this.GetComponent<Renderer>().enabled = true;
         //Border.GetComponent<Renderer>().enabled = true;
     }

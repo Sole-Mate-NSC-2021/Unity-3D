@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GoIntoGate : MonoBehaviour
 {
@@ -86,7 +87,7 @@ public class GoIntoGate : MonoBehaviour
             playerControl.it = 1;
         }
 
-        else if (Input.GetMouseButtonDown(0))
+        else if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             ClickGate(1, 4, "GoRedGate");
             ClickGate(0, 4, "GoBlueGate");

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class PushButton : MonoBehaviour
 {    
     public class pairDoor
@@ -137,7 +137,7 @@ public class PushButton : MonoBehaviour
             changeDoor = false;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray;
             RaycastHit hit;

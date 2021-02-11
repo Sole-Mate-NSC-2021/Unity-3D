@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PathHighlight : MonoBehaviour
 {
@@ -49,7 +50,9 @@ public class PathHighlight : MonoBehaviour
         StartI = playerControl.StartI;
         StartJ = playerControl.StartJ;
         if (Input.GetMouseButtonDown(0))
+        {
             SelectDestination();
+        }
         else if (!playerControl.isOnWay)
         {
             HoverPoint();
@@ -93,6 +96,9 @@ public class PathHighlight : MonoBehaviour
     }
     void SelectDestination()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         Ray ray;
         RaycastHit hit;
 
