@@ -1,72 +1,151 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GoIntoGate2 : MonoBehaviour
 {
-    Animator anim;
-    PlayerControl playerControl;
-    Rigidbody rb;
-    PathHighlight pathHighlight;
-    CharacterSwitch characterSwitch;
-    Rewind rewind;
+    // Start is called before the first frame update
 
-    public bool isRunning = false, isFuture;
+    public PlayerControl playerControl;
+    public Rigidbody rb;
+    public PathFinding pathFinding;
+    public PathHighlight pathHighlight;
+    public GenGrid grid;
+    public Rewind rewind;
+    public CharacterSwitch characterSwitch;
+    public ChangeScene changeScene;
 
-    private void Start()
+    public List<GenNode> lis;
+
+    bool isFuture, isPresent = true;
+    void Start()
     {
         playerControl = GetComponent<PlayerControl>();
-        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        pathFinding = GetComponent<PathFinding>();
         pathHighlight = GetComponent<PathHighlight>();
-        characterSwitch = GetComponent<CharacterSwitch>();
+        grid = GetComponent<GenGrid>();
         rewind = GetComponent<Rewind>();
+        characterSwitch = GameObject.Find("CharacterSwitch").GetComponent<CharacterSwitch>();
+        changeScene = GetComponent<ChangeScene>();
     }
 
+    public Vector3 toRot, currentRot;
+
+    public int ch, TargetI, TargetJ;
+
+    public float rotSpeed = 1.0f;
+
+    public bool isReverse;
+
+    // Update is called once per frame
     void Update()
     {
-        if (isFuture)
+
+        if (this.gameObject.name == "CharacterPresent" && endFuture(2, 3))
         {
-            if (isRunning)
+            Debug.Log("ERSDAD");
+            changeScene.change_to_select_menu();
+        }
+
+        isReverse = endFuture(1, 0);
+
+        if (isReverse && isPresent)
+        {
+            isPresent = false;
+            StartCoroutine(toReverse());
+        }
+
+        if (ch == 2)
+        {
+            currentRot = Vector3.Lerp(currentRot, toRot, rotSpeed * Time.fixedDeltaTime);
+            if (Mathf.Abs(currentRot.y - toRot.y) < 0.2f)
             {
-                rb.MovePosition(transform.position + transform.forward);
-                anim.SetFloat("running", 10);
+                transform.eulerAngles = currentRot;
+                ch = 1;
             }
             else
             {
-                anim.SetFloat("running", 0);
+                transform.eulerAngles = currentRot;
             }
         }
 
-        Ray ray;
-        RaycastHit hit;
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Input.GetMouseButtonDown(0))
+        else if (ch == 1)
         {
+            pathFinding.TargetI = TargetI;
+            pathFinding.TargetJ = TargetJ;
+            pathFinding.StartI = playerControl.StartI;
+            pathFinding.StartJ = playerControl.StartJ;
+
+            pathHighlight.TargetI = TargetI;
+            pathHighlight.TargetJ = TargetJ;
+
+            lis = grid.FinalPath;
+            ch = 0;
+            playerControl.it = 1;
+        }
+
+        else if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            ClickGate(1, 3, "GoBlueGate");
+            ClickGate(1, 1, "GoRedGate");
+        }
+    }
+
+    void ClickGate(int a_i, int a_j, string gateName)
+    {
+        if (a_i == playerControl.StartI && a_j == playerControl.StartJ)
+        {
+            Ray ray;
+            RaycastHit hit;
+
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.name == "RedGate")
+
+                if (hit.collider.gameObject.name == gateName)
                 {
-                    Debug.Log(this.name);
-                    if (isFuture)
+                    if (gateName == "GoBlueGate")
                     {
-                        Debug.Log("Red");
-                        isRunning = true;
+                        currentRot = transform.eulerAngles;
+                        toRot = new Vector3(0, difRotation(transform.eulerAngles.y, 270), 0);
+                        ch = 2;
+                        TargetI = a_i + 1;
+                        TargetJ = a_j;
+                    }
+                    else if (gateName == "GoRedGate")
+                    {
+                        currentRot = transform.eulerAngles;
+                        toRot = new Vector3(0, difRotation(transform.eulerAngles.y, 180), 0);
+                        ch = 2;
+                        TargetI = a_i;
+                        TargetJ = a_j - 1;
                     }
                 }
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
+    float difRotation(float now, float to)
     {
-        if(other.name == "RedCollider")
+        if (Mathf.Abs(to - now) < Mathf.Abs(to - now + 360))
         {
-            Debug.Log("MANMA");
-            isRunning = false;
-            anim.SetFloat("running", 0);
-            toReverse();
+            return to;
         }
+        return to + 360;
     }
+    bool endFuture(int a_i, int a_j)
+    {
+        //Debug.Log(playerControl.StartI + " " + playerControl.StartJ);
+        if (a_i == playerControl.StartI && a_j == playerControl.StartJ)
+        {
+            return true;
+        }
+        return false;
+    }
+
     IEnumerator toReverse()
     {
         pathHighlight.enabled = false;
