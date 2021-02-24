@@ -111,7 +111,7 @@ public class GoIntoGate2 : MonoBehaviour
                     if (gateName == "GoBlueGate")
                     {
                         currentRot = transform.eulerAngles;
-                        toRot = new Vector3(0, difRotation(transform.eulerAngles.y, 270), 0);
+                        toRot = new Vector3(0, 270, 0);
                         ch = 2;
                         TargetI = a_i + 1;
                         TargetJ = a_j;

@@ -11,7 +11,7 @@ public class Push_Box : MonoBehaviour
     public Vector3 lastRot, toRot, currentRot, lastPos;
 
     public bool isFuture = true, isUp, isPushing = false, wasPushing = false, attach = false, a_isPushing = false, a_wasPushing = false;
-    public bool isOut;
+    public bool isOut, letWalk = false;
     public int i, j, ch, ch2, cnt, cnt2;
     public float rotSpeed = 2.0f;
     public GameObject box, otherCharacter, endDot;
@@ -28,10 +28,13 @@ public class Push_Box : MonoBehaviour
 
     void Start()
     {
+
+        letWalk = false;
+
         playerControl = GetComponent<PlayerControl>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        characterSwitch = GetComponent<CharacterSwitch>();
+        characterSwitch = GameObject.Find("CharacterSwitch").GetComponent<CharacterSwitch>();
     }
 
     // Update is called once per frame
@@ -75,7 +78,7 @@ public class Push_Box : MonoBehaviour
             {
                 Debug.Log("Fin");
                 attach = false;
-                this.transform.parent = this.transform;
+                this.transform.parent = null;
                 ch2 = 1;
                 isOut = true;
             }
@@ -86,8 +89,9 @@ public class Push_Box : MonoBehaviour
             }
         }
 
-        else if(ch2 == 1)
+        else if(ch2 == 1 && letWalk)
         {
+            
             transform.eulerAngles = new Vector3(0, 270, 0);
             if (Mathf.Abs(endDot.transform.position.x - transform.position.x) > 0.1f)
             {
@@ -102,6 +106,7 @@ public class Push_Box : MonoBehaviour
                 ch2 = 0;
                 anim.SetFloat("running", 0f);
             }
+            
             /*
             if(cnt2 >= 25)
             {
@@ -227,7 +232,7 @@ public class Push_Box : MonoBehaviour
     {
         if (other.collider.name == "Box")
         {
-            Debug.Log("IN");
+            //Debug.Log("IN");
             cnt++;
         }
     }

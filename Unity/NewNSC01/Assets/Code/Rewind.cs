@@ -6,7 +6,6 @@ public class Rewind : MonoBehaviour
     public float localTimeScale = 1;
     void Update()
     {
-
         // Get the Enemies global clock
         Clock clock = Timekeeper.instance.Clock("Player");
 

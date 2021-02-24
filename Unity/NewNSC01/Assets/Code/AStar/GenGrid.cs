@@ -13,7 +13,7 @@ public class GenGrid : MonoBehaviour
 
     void Start()
     {
-        gridSizeI = 2;
+        gridSizeI = 3;
         gridSizeJ = 6;
         CreateGrid();
     }

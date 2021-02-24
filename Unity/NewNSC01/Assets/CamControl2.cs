@@ -22,6 +22,9 @@ public class CamControl2 : MonoBehaviour
 
     void Update()
     {
+        transform.position = new Vector3(Mathf.Min(19.0f, transform.position.x), Mathf.Max(19.0f, transform.position.y), transform.position.z);
+        transform.position = new Vector3(Mathf.Max(19.0f, transform.position.x), Mathf.Min(25.5f, transform.position.y), transform.position.z);
+
         if (Input.GetMouseButtonDown(1))
         {
             dragOrigin = Input.mousePosition;
@@ -35,21 +38,6 @@ public class CamControl2 : MonoBehaviour
         dragPos = Camera.main.ScreenToViewportPoint(dragOrigin - Input.mousePosition);
         nextPos = new Vector3(tmpPos.x * panSpeed, dragPos.y * panSpeed, 0);
         realPos = Camera.main.ViewportToWorldPoint(nextPos);
-
-        //realPos.x = Mathf.Max(realPos.x, leftX);
-        /*
-        realPos.x = Mathf.Min(realPos.x, rightX);
-
-        realPos.y = Mathf.Max(realPos.y, leftY);
-        realPos.y = Mathf.Min(realPos.y, rightY);
-        */
-
-        //realPos.x = Mathf.Min(realPos.x, 20.0f);
-        //realPos.y = Mathf.Min(realPos.y, 13.5f);
-
-        //Debug.Log(realPos.y);
-
-        //Debug.Log("HAHS" + transform.position.y);
 
         nextPos = Camera.main.WorldToViewportPoint(realPos);
         nextPos.z = Camera.main.ScreenToViewportPoint(dragOrigin).z;
