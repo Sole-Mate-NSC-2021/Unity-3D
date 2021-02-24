@@ -8101,15 +8101,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1866905135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc9a199a5958814db4b5f1ea7a64a91, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d287a5b55b363d4f9db56bf6b8eedcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 0.4
+  panSpeed: 0
   ScreenBoarder: 10
   dragOrigin: {x: 0, y: 0, z: 0}
   dragPos: {x: 0, y: 0, z: 0}
   nextPos: {x: 0, y: 0, z: 0}
   realPos: {x: 0, y: 0, z: 0}
+  tmpPos: {x: 0, y: 0, z: 0}
   leftX: 0
   rightX: 0
   leftY: 0
